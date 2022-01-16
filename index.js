@@ -18,7 +18,8 @@ admin.initializeApp({
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.xbjvx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.tg4nc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -243,27 +244,6 @@ async function run() {
         res.json(result);
       });
 
-    // app.put("/users/admin", verifyToken, async (req, res) => {
-    //   const user = req.body;
-    //   console.log(user)
-    //   const requester = req.dicodedEmail;
-    //   if (requester) {
-    //     const requesterAccount = await usersCollection.findOne({
-    //       email: requester,
-    //     });
-    //     if (requesterAccount.role === "admin") {
-    //       const filter = { email: user.email };
-    //       const updateDoc = { $set: { role: "admin" } };
-    //       const result = await usersCollection.updateOne(filter, updateDoc);
-    //       res.json(result);
-    //     }
-    //   } else {
-    //     res
-    //       .status(403)
-    //       .json({ message: "you do not have an access to make admin" });
-    //   }
-    // });
-
   } finally {
     // await client.close();
   }
@@ -271,7 +251,7 @@ async function run() {
 run().catch(console.dir);
 
 app.get("/", (req, res) => {
-  res.send("Hello BD Travel Agency");
+  res.send("Hello Zara Travel Agency");
 });
 
 app.listen(port, () => {
